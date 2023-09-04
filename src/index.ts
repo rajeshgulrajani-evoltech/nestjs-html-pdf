@@ -5,6 +5,7 @@ const fs = require('fs-extra');
 export const createPdf = async (filePath: string, options = {}, data = {}) => {
   try {
     const browser = await puppeteer.launch({
+      headless: 'new',
       executablePath: process.env.CHROME_BIN || null,
     });
     const page = await browser.newPage();
