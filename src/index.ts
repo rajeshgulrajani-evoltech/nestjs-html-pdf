@@ -7,6 +7,7 @@ export const createPdf = async (filePath: string, options = {}, data = {}) => {
     const browser = await puppeteer.launch({
       headless: 'new',
       executablePath: process.env.CHROME_BIN || null,
+      args: ['--no-sandbox'],
     });
     const page = await browser.newPage();
 
